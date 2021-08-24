@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import filled from "../styles/star_filled.png";
 import empty from "../styles/star_empty.png";
 import hover from "../styles/star_hover.png";
 

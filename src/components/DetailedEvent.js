@@ -1,9 +1,6 @@
 import {useEffect, useState} from "react";
 import {createAPIEndpoint, ENDPOINTS} from "../api";
-import {Link, useParams} from "react-router-dom";
-import {StyledCardContainer} from "./styles/StyledCardContainer";
-import EventCard from "./elements/EventCard";
-import {StyledFavoriteButton} from "./styles/StyledFavoriteButton";
+import {useParams} from "react-router-dom";
 import {StyledDetailedEvent} from "./styles/StyledDetailedEvent";
 
 const DetailedEvent = () => {
