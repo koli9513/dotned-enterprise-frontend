@@ -1,7 +1,7 @@
 import {StyledSmallCard} from "../styles/StyledSmallCard";
 import {Link} from "react-router-dom";
 
-const SmallEventCard = (props) => {
+const EventCard = (props) => {
     const detailedViewUrl = `/events/${props.id}`;
 
     return (
@@ -22,4 +22,4 @@ const SmallEventCard = (props) => {
     );
 };
 
-export default SmallEventCard;
+export default EventCard;

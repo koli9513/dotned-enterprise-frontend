@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { createAPIEndpoint, ENDPOINTS } from "../api";
-import SmallEventCard from "./elements/SmallEventCard";
+import EventCard from "./elements/EventCard";
 import {StyledCardContainer} from "./styles/StyledCardContainer";
 
 const EventList = () => {
@@ -18,7 +18,7 @@ const EventList = () => {
   return (
     <StyledCardContainer>
       {events.map((event, index) => (
-          <SmallEventCard
+          <EventCard
               key={index}
               image={event.image}
               city={event.city}
