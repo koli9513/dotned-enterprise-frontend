@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { createAPIEndpoint, ENDPOINTS } from "../api";
 import SmallEventCard from "./elements/SmallEventCard";
+import {StyledCardContainer} from "./styles/StyledCardContainer";
 
 const EventList = () => {
   const [events, setEvents] = useState([]);
@@ -15,18 +16,23 @@ const EventList = () => {
   }, []);
 
   return (
-    <>
+    <StyledCardContainer>
       {events.map((event, index) => (
           <SmallEventCard
               key={index}
               image={event.image}
               city={event.city}
               name={event.name}
-              date={event.date}
+              year={event.formattedDate[0]}
+              month={event.formattedDate[1]}
+              day={event.formattedDate[2]}
+              hour={event.formattedDate[3]}
+              minute={event.formattedDate[4]}
               id={event.id}
+              category={event.category}
           />
       ))}
-    </>
+    </StyledCardContainer>
   );
 };
 
