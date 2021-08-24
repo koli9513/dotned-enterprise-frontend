@@ -55,7 +55,8 @@ export const StyledSmallCard = styled.div
   > .time-info {
     display: table-cell;
     position: relative;
-    width: 40px;
+    //width: 40px;
+    left: 60px;
     text-align: center;
     margin: 0;
     padding: 0;
