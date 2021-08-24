@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { createAPIEndpoint, ENDPOINTS } from "../api";
+import SmallEventCard from "./elements/SmallEventCard";
 
 const EventList = () => {
   const [events, setEvents] = useState([]);
@@ -16,7 +17,14 @@ const EventList = () => {
   return (
     <>
       {events.map((event, index) => (
-        <div key={index}>{event.name}</div>
+          <SmallEventCard
+              key={index}
+              image={event.image}
+              city={event.city}
+              name={event.name}
+              date={event.date}
+              id={event.id}
+          />
       ))}
     </>
   );
