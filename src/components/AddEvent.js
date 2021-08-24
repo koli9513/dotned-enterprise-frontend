@@ -1,29 +1,40 @@
 import React, { useState } from "react";
+import { createAPIEndpoint, ENDPOINTS } from "../api";
 
 const AddEvent = () => {
-  const [name, setName] = useState("");
-  const [description, setDescription] = useState("");
-  const [location, setLocation] = useState("");
-  const [eventUrl, setEventUrl] = useState("");
-  const [eventCategory, setEventCategory] = useState("");
-  const [date, setDate] = useState("2021-10-12T19:30");
+  const [event, setEvent] = useState({
+    name: "",
+    isFavorite: false,
+    description: "",
+    image: "",
+    location: "",
+    city: "",
+    eventUrl: "",
+    userId: 1,
+    date: "2021-10-12T19:30",
+    //eventCategory: "",
+  });
 
   const handleSubmit = (event) => {
-    console.log(`
-        id: 1
-        name: ${name}
-        isFavorite: false
-        description: ${description}
-        imagUrl: none
-        location: ${location}
-        city: ${location}
-        eventUrl: ${eventUrl}
-        userId: userId
-        date: ${date}
-        eventcategory: ${eventCategory}
-      `);
-
     event.preventDefault();
+    saveEvent();
+  };
+
+  const saveEvent = () => {
+    createAPIEndpoint(ENDPOINTS.EVENT)
+      .create(JSON.stringify(event))
+      .then(() => {
+        console.log("Event saved successfully");
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setEvent((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
 
   return (
@@ -35,8 +46,8 @@ const AddEvent = () => {
         <input
           name="name"
           type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={event.name}
+          onChange={handleChange}
           required
         />
       </label>
@@ -46,8 +57,8 @@ const AddEvent = () => {
         <input
           name="description"
           type="text"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
+          value={event.description}
+          onChange={handleChange}
           required
         />
       </label>
@@ -56,8 +67,8 @@ const AddEvent = () => {
         Location:
         <select
           name="location"
-          value={location}
-          onChange={(e) => setLocation(e.target.value)}
+          value={event.location}
+          onChange={handleChange}
           required
         >
           <option key=""></option>
@@ -73,8 +84,8 @@ const AddEvent = () => {
         <input
           name="eventUrl"
           type="text"
-          value={eventUrl}
-          onChange={(e) => setEventUrl(e.target.value)}
+          value={event.eventUrl}
+          onChange={handleChange}
           required
         />
       </label>
@@ -83,8 +94,8 @@ const AddEvent = () => {
         Category:
         <select
           name="eventCategory"
-          value={eventCategory}
-          onChange={(e) => setEventCategory(e.target.value)}
+          value={event.eventCategory}
+          onChange={handleChange}
           required
         >
           <option key=""></option>
@@ -100,8 +111,8 @@ const AddEvent = () => {
         <input
           name="date"
           type="datetime-local"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
+          value={event.date}
+          onChange={handleChange}
           required
         />
       </label>
