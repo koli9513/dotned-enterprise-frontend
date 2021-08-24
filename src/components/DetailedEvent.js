@@ -4,6 +4,7 @@ import {Link, useParams} from "react-router-dom";
 import {StyledCardContainer} from "./styles/StyledCardContainer";
 import EventCard from "./elements/EventCard";
 import {StyledFavoriteButton} from "./styles/StyledFavoriteButton";
+import {StyledDetailedEvent} from "./styles/StyledDetailedEvent";
 
 const DetailedEvent = () => {
     const [event, setEvent] = useState([]);
@@ -14,29 +15,44 @@ const DetailedEvent = () => {
 
             .fetchById(eventId)
             .then((res) => {
-                setEvent(res.data);
+                const eventFromServer = {
+                    name: res.data.name,
+                    description: res.data.description,
+                    year: res.data.formattedDate[0],
+                    month: res.data.formattedDate[1],
+                    day: res.data.formattedDate[2],
+                    hour: res.data.formattedDate[3],
+                    minute: res.data.formattedDate[4],
+                    eventUrl: res.data.eventUrl,
+                    location: res.data.location,
+                    image: res.data.image
+                }
+                setEvent(eventFromServer);
             })
             .catch((err) => console.log(err));
     }, [eventId]);
 
     return (
-        <div>
-            <img src={event.image} alt="small card img"/>
-            <div className="date-info">
-                <span className="year">{event.year} </span>
-                <span className="month">{event.month}</span><br/>
-                <span className="day">{event.day}</span>
+        <StyledDetailedEvent>
+            <div className="details">
+                <div className="name">{event.name}</div>
+                    <div className="box-left" dangerouslySetInnerHTML={{__html :event.description}} />
+                    <div className="box-right">
+                        <div className="date-info">
+                            <span className="year">{event.year} </span>
+                            <span className="month">{event.month}</span><br/>
+                            <span className="day">{event.day}</span>
+                        </div>
+                        <div className="time-info">
+                            <span className="hour">{event.hour} </span>
+                            <span className="minute">{event.minute}</span>
+                        </div>
+                        <div className="location" dangerouslySetInnerHTML={{__html :event.location}} />
+                        <a className="link" href={event.eventUrl}>Click for event details</a>
+                    </div>
             </div>
-            <div className="time-info">
-                <em className="hour">{event.hour}</em>
-                <em className="minute">{event.minute}</em>
-            </div>
-            <h1 className="name">{event.name}</h1>
-            <div dangerouslySetInnerHTML={{__html :event.description}} />
-            <a href={event.eventUrl}>Click for event details</a>
-            <div dangerouslySetInnerHTML={{__html :event.location}} />
-            <div className="tags">{event.category}, <span>{event.city}</span></div>
-        </div>
+            <img src={event.image} alt="big card img"/>
+        </StyledDetailedEvent>
     );
 };
 
