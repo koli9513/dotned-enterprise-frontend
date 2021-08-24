@@ -56,7 +56,6 @@ export const StyledSmallCard = styled.div
     display: table-cell;
     position: relative;
     //width: 40px;
-    left: 60px;
     text-align: center;
     margin: 0;
     padding: 0;
@@ -95,9 +94,10 @@ export const StyledSmallCard = styled.div
     cursor: pointer;
     font-weight: 800;
     text-align: center;
+    
     -webkit-text-size-adjust: 100%;
-    line-height: 1.3em;
-    font-size: 22px;
+    //line-height: 2em;
+    font-size: 1.4em;
 
   }
 

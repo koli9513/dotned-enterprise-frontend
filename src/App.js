@@ -1,6 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import EventList from "./components/EventList";
+import DetailedEvent from "./components/DetailedEvent";
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
         <div>Navbar</div>
         <Switch>
           <Route exact path="/">
-            <div>Home</div>
+            <EventList />
           </Route>
           <Route path="/events">
             <EventList />
@@ -17,8 +18,8 @@ function App() {
           <Route path="/favorites">
             <div>Favorites</div>
           </Route>
-          <Route path="/events/:id">
-            <div>Event details</div>
+          <Route path="/event/:eventId">
+            <DetailedEvent />
           </Route>
           <Route path="/events/:category/:date">
             <div>Events by category and date</div>

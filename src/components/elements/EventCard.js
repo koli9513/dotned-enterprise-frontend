@@ -1,8 +1,9 @@
 import {StyledSmallCard} from "../styles/StyledSmallCard";
 import {Link} from "react-router-dom";
+import {StyledFavoriteButton} from "../styles/StyledFavoriteButton";
 
 const EventCard = (props) => {
-    const detailedViewUrl = `/events/${props.id}`;
+    const detailedViewUrl = `/event/${props.id}`;
 
     return (
         <StyledSmallCard>
@@ -15,6 +16,7 @@ const EventCard = (props) => {
             <div className="time-info">
                 <em className="hour">{props.hour}</em>
                 <em className="minute">{props.minute}</em>
+                <StyledFavoriteButton/>
             </div>
             <Link to={detailedViewUrl} className="name">{props.name}</Link>
             <div className="tags">{props.category}, <span>{props.city}</span></div>
