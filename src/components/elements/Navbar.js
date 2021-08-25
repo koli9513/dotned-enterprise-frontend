@@ -2,6 +2,7 @@ import {StyledNavbarLink} from "../styles/StyledNavbarLink";
 import {StyledNavbar} from "../styles/StyledNavbar";
 import {StyledSearchButton} from "../styles/StyledSearchButton";
 import SearchField from "../search/SearchField";
+import "../styles/search.css";
 
 const Navbar = () => {
 
