@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { createAPIEndpoint, ENDPOINTS } from "../api";
+import { useHistory } from "react-router-dom";
 
 const AddEvent = () => {
+  let history = useHistory();
   const [event, setEvent] = useState({
     name: "",
     isFavorite: false,
@@ -25,6 +27,7 @@ const AddEvent = () => {
       .create(JSON.stringify(event))
       .then(() => {
         console.log("Event saved successfully");
+        history.push("/events");
       })
       .catch((err) => console.log(err));
   };
