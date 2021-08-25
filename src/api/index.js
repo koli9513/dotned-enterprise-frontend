@@ -9,6 +9,7 @@ const header = {
 
 export const ENDPOINTS = {
   EVENT: "EventItems",
+  FAVORITE: "EventItems/favorites",
 };
 
 export const createAPIEndpoint = (endpoint) => {
