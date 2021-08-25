@@ -1,6 +1,6 @@
 import {StyledNavbarLink} from "../styles/StyledNavbarLink";
 import {StyledNavbar} from "../styles/StyledNavbar";
-import {StyledSearchButton} from "../styles/StyledSearchButton";
+import "../styles/search.css";
 
 const Navbar = () => {
 
@@ -12,7 +12,10 @@ const Navbar = () => {
                 <StyledNavbarLink to="/login">Login</StyledNavbarLink>
                 <StyledNavbarLink to="/register">Register</StyledNavbarLink>
         </StyledNavbar>
-        <StyledSearchButton>o</StyledSearchButton>
+            <div className="search-box">
+                <input className="search-txt" type="text" name="" placeholder="search events..."/>
+                    <a className="search-btn" href="#"/>
+            </div>
         </>
     );
 };
