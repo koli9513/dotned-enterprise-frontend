@@ -1,9 +1,22 @@
 import {StyledSmallCard} from "../styles/StyledSmallCard";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import {StyledFavoriteButton} from "../styles/StyledFavoriteButton";
+import {createAPIEndpoint, ENDPOINTS} from "../../api";
 
 const EventCard = (props) => {
     const detailedViewUrl = `/event/${props.id}`;
+    let history = useHistory();
+
+    const deleteEvent = () => {
+        createAPIEndpoint(ENDPOINTS.EVENT)
+            .delete(JSON.stringify(props.id))
+            .then(() => {
+                console.log("Event deleted successfully");
+                // history.push("/events");
+                window.location.reload(false);
+            })
+            .catch((err) => console.log(err));
+    }
 
     return (
         <StyledSmallCard>
@@ -19,6 +32,9 @@ const EventCard = (props) => {
                 <StyledFavoriteButton/>
             </div>
             <Link to={detailedViewUrl} className="name">{props.name}</Link>
+
+            <button className="delete" onClick={deleteEvent}>🗑</button>
+
             <div className="tags">{props.category}, <span>{props.city}</span></div>
         </StyledSmallCard>
     );
