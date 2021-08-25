@@ -1,7 +1,6 @@
 import {StyledNavbarLink} from "../styles/StyledNavbarLink";
 import {StyledNavbar} from "../styles/StyledNavbar";
 import {StyledSearchButton} from "../styles/StyledSearchButton";
-import './search.css';
 
 const Navbar = () => {
 
