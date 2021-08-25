@@ -1,6 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import EventList from "./components/EventList";
+import AddEvent from "./components/AddEvent";
 
 function App() {
   return (
@@ -11,8 +12,11 @@ function App() {
           <Route exact path="/">
             <div>Home</div>
           </Route>
-          <Route path="/events">
+          <Route exact path="/events">
             <EventList />
+          </Route>
+          <Route path="/events/add">
+            <AddEvent />
           </Route>
           <Route path="/favorites">
             <div>Favorites</div>
