@@ -18,9 +18,9 @@ const FavoriteList = () => {
 
   return (
     <StyledCardContainer>
-      {events.map((event, index) => (
+      {events.map((event) => (
         <EventCard
-          key={index}
+          key={event.id}
           event={event}
           year={event.formattedDate[0]}
           month={event.formattedDate[1]}
