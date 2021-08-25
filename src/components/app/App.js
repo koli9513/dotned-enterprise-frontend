@@ -1,10 +1,10 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import EventList from "../elements/EventList";
+import FavoriteList from "../elements/FavoriteList";
 import DetailedEvent from "../elements/DetailedEvent";
 import Navbar from "../elements/Navbar";
 import AddEvent from "../AddEvent";
-
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
             <AddEvent />
           </Route>
           <Route path="/favorites">
-            <div>Favorites</div>
+            <FavoriteList />
           </Route>
           <Route path="/event/:eventId">
             <DetailedEvent />

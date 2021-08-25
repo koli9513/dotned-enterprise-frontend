@@ -3,12 +3,12 @@ import { createAPIEndpoint, ENDPOINTS } from "../../api";
 import EventCard from "./EventCard";
 import { StyledCardContainer } from "../styles/StyledCardContainer";
 
-const EventList = () => {
+const FavoriteList = () => {
   const [events, setEvents] = useState([]);
   const [requestData, setRequestData] = useState({});
 
   useEffect(() => {
-    createAPIEndpoint(ENDPOINTS.EVENT)
+    createAPIEndpoint(ENDPOINTS.FAVORITE)
       .fetchAll()
       .then((res) => {
         setEvents(res.data);
@@ -34,4 +34,4 @@ const EventList = () => {
   );
 };
 
-export default EventList;
+export default FavoriteList;

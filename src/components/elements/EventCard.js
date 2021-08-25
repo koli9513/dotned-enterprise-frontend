@@ -1,45 +1,92 @@
-import {StyledSmallCard} from "../styles/StyledSmallCard";
-import {Link, useHistory} from "react-router-dom";
-import {StyledFavoriteButton} from "../styles/StyledFavoriteButton";
-import {createAPIEndpoint, ENDPOINTS} from "../../api";
+import React, { useState, useEffect, useRef } from "react";
+import { createAPIEndpoint, ENDPOINTS } from "../../api";
+import { StyledSmallCard } from "../styles/StyledSmallCard";
+import { Link } from "react-router-dom";
+import { StyledFavoriteButton } from "../styles/StyledFavoriteButton";
 
 const EventCard = (props) => {
-    const detailedViewUrl = `/event/${props.id}`;
-    let history = useHistory();
+  const [event, setEvent] = useState(props.event);
+  const detailedViewUrl = `/event/${event.id}`;
 
-    const deleteEvent = () => {
-        createAPIEndpoint(ENDPOINTS.EVENT)
-            .delete(JSON.stringify(props.id))
-            .then(() => {
-                console.log("Event deleted successfully");
-                // history.push("/events");
-                window.location.reload(false);
-            })
-            .catch((err) => console.log(err));
+  const isInitialMount = useRef(true);
+
+  const deleteEvent = () => {
+    createAPIEndpoint(ENDPOINTS.EVENT)
+      .delete(JSON.stringify(event.id))
+      .then(() => {
+        props.setRequestData({});
+        console.log("Event deleted successfully");
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const removeFromFavorites = () => {
+    setEvent((prevState) => ({
+      ...prevState,
+      isFavorite: false,
+    }));
+  };
+
+  const addToFavorites = () => {
+    setEvent((prevState) => ({
+      ...prevState,
+      isFavorite: true,
+    }));
+  };
+
+  useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+    } else {
+      createAPIEndpoint(ENDPOINTS.EVENT)
+        .update(event.id, JSON.stringify(event))
+        .then(() => {
+          props.setRequestData({});
+          console.log("Event updated successfully");
+        })
+        .catch((err) => console.log(err));
     }
+  }, [event]);
 
-    return (
-        <StyledSmallCard>
-            <img src={props.image} alt="small card img"/>
-            <div className="date-info">
-                <span className="year">{props.year} </span>
-                <span className="month">{props.month}</span><br/>
-                <span className="day">{props.day}</span>
-            </div>
-            <div className="time-info">
-                <em className="hour">{props.hour}</em>
-                <em className="minute">{props.minute}</em>
-                <StyledFavoriteButton/>
-            </div>
-            <Link to={detailedViewUrl} className="name">{props.name}</Link>
-            <br/>
-            <span className="subtitle">{props.subtitle}</span>
+  return (
+    <StyledSmallCard>
+      <img src={event.image} alt="small card img" />
+      <div className="date-info">
+        <span className="year">{props.year} </span>
+        <span className="month">{props.month}</span>
+        <br />
+        <span className="day">{props.day}</span>
+      </div>
+      <div className="time-info">
+        <em className="hour">{props.hour}</em>
+        <em className="minute">{props.minute}</em>
+        {event.isFavorite ? (
+          <StyledFavoriteButton
+            addedToFavorite={event.isFavorite}
+            onClick={removeFromFavorites}
+          />
+        ) : (
+          <StyledFavoriteButton
+            addedToFavorite={event.isFavorite}
+            onClick={addToFavorites}
+          />
+        )}
+      </div>
+      <Link to={detailedViewUrl} className="name">
+        {event.name}
+      </Link>
+        <br/>
+        <span className="subtitle">{props.subtitle}</span>
 
-            <button className="delete" onClick={deleteEvent}>🗑</button>
+        <button className="delete" onClick={deleteEvent}>
+        🗑
+      </button>
 
-            <div className="tags">{props.category}, <span>{props.city}</span></div>
-        </StyledSmallCard>
-    );
+      <div className="tags">
+        {event.category}, <span>{event.city}</span>
+      </div>
+    </StyledSmallCard>
+  );
 };
 
 export default EventCard;
