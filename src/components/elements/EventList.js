@@ -30,6 +30,7 @@ const EventList = () => {
               minute={event.formattedDate[4]}
               id={event.id}
               category={event.category}
+              subtitle={event.subtitle}
           />
       ))}
     </StyledCardContainer>

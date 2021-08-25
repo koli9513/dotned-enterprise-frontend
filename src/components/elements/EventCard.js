@@ -32,6 +32,8 @@ const EventCard = (props) => {
                 <StyledFavoriteButton/>
             </div>
             <Link to={detailedViewUrl} className="name">{props.name}</Link>
+            <br/>
+            <span className="subtitle">{props.subtitle}</span>
 
             <button className="delete" onClick={deleteEvent}>🗑</button>
 
