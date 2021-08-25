@@ -9,10 +9,10 @@ const EventCard = (props) => {
   const detailedViewUrl = `/event/${event.id}`;
 
   const isInitialMount = useRef(true);
-  
-    const deleteEvent = () => {
+
+  const deleteEvent = () => {
     createAPIEndpoint(ENDPOINTS.EVENT)
-      .delete(JSON.stringify(props.id))
+      .delete(JSON.stringify(event.id))
       .then(() => {
         props.setRequestData({});
         console.log("Event deleted successfully");
