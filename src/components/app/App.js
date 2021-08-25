@@ -30,6 +30,9 @@ function App() {
           <Route path="/events/:category/:date">
             <div>Events by category and date</div>
           </Route>
+          <Route path="/search/:searchTerm">
+
+          </Route>
         </Switch>
       </div>
     </Router>
