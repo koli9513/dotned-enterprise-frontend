@@ -57,7 +57,7 @@ const AddEvent = () => {
 
       <label>
         Description:
-        <input
+        <textarea
           name="description"
           type="text"
           value={event.description}
