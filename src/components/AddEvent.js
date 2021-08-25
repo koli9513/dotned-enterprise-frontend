@@ -68,18 +68,22 @@ const AddEvent = () => {
 
       <label>
         Location:
-        <select
+        <input
           name="location"
           value={event.location}
           onChange={handleChange}
           required
-        >
-          <option key=""></option>
+        />
+      </label>
 
-          <option>Budapest</option>
-          <option>Szeged</option>
-          <option>Győr</option>
-        </select>
+      <label>
+        City:
+        <input
+          name="city"
+          value={event.city}
+          onChange={handleChange}
+          required
+        />
       </label>
 
       <label>
