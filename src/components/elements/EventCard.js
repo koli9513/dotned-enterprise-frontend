@@ -1,15 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { createAPIEndpoint, ENDPOINTS } from "../../api";
 import { StyledSmallCard } from "../styles/StyledSmallCard";
 import { Link } from "react-router-dom";
 import { StyledFavoriteButton } from "../styles/StyledFavoriteButton";
 
 const EventCard = (props) => {
-  const detailedViewUrl = `/event/${props.id}`;
-  const [isFavorite, setIsFavorite] = useState(props.isFavorite);
+  const [event, setEvent] = useState(props.event);
+  const detailedViewUrl = `/event/${event.id}`;
+
+  const removeFromFavorites = () => {
+    setEvent((prevState) => ({
+      ...prevState,
+      isFavorite: false,
+    }));
+  };
+
+  const addToFavorites = () => {
+    setEvent((prevState) => ({
+      ...prevState,
+      isFavorite: true,
+    }));
+  };
+
+  useEffect(() => {
+    createAPIEndpoint(ENDPOINTS.EVENT)
+      .update(event.id, JSON.stringify(event))
+      .then(() => {
+        console.log("Event updated successfully");
+      })
+      .catch((err) => console.log(err));
+  }, [event]);
 
   return (
     <StyledSmallCard>
-      <img src={props.image} alt="small card img" />
+      <img src={event.image} alt="small card img" />
       <div className="date-info">
         <span className="year">{props.year} </span>
         <span className="month">{props.month}</span>
@@ -19,27 +43,23 @@ const EventCard = (props) => {
       <div className="time-info">
         <em className="hour">{props.hour}</em>
         <em className="minute">{props.minute}</em>
-        {isFavorite ? (
+        {event.isFavorite ? (
           <StyledFavoriteButton
-            addedToFavorite={isFavorite}
-            onClick={() => {
-              setIsFavorite(!isFavorite);
-            }}
+            addedToFavorite={event.isFavorite}
+            onClick={removeFromFavorites}
           />
         ) : (
           <StyledFavoriteButton
-            addedToFavorite={isFavorite}
-            onClick={() => {
-              setIsFavorite(!isFavorite);
-            }}
+            addedToFavorite={event.isFavorite}
+            onClick={addToFavorites}
           />
         )}
       </div>
       <Link to={detailedViewUrl} className="name">
-        {props.name}
+        {event.name}
       </Link>
       <div className="tags">
-        {props.category}, <span>{props.city}</span>
+        {event.category}, <span>{event.city}</span>
       </div>
     </StyledSmallCard>
   );
