@@ -41,6 +41,7 @@ const EventCard = (props) => {
       createAPIEndpoint(ENDPOINTS.EVENT)
         .update(event.id, JSON.stringify(event))
         .then(() => {
+          props.setRequestData({});
           console.log("Event updated successfully");
         })
         .catch((err) => console.log(err));
