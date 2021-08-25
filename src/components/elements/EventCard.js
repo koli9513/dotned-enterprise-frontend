@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { createAPIEndpoint, ENDPOINTS } from "../../api";
 import { StyledSmallCard } from "../styles/StyledSmallCard";
 import { Link } from "react-router-dom";
@@ -7,6 +7,8 @@ import { StyledFavoriteButton } from "../styles/StyledFavoriteButton";
 const EventCard = (props) => {
   const [event, setEvent] = useState(props.event);
   const detailedViewUrl = `/event/${event.id}`;
+
+  const isInitialMount = useRef(true);
 
   const removeFromFavorites = () => {
     setEvent((prevState) => ({
@@ -23,12 +25,16 @@ const EventCard = (props) => {
   };
 
   useEffect(() => {
-    createAPIEndpoint(ENDPOINTS.EVENT)
-      .update(event.id, JSON.stringify(event))
-      .then(() => {
-        console.log("Event updated successfully");
-      })
-      .catch((err) => console.log(err));
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+    } else {
+      createAPIEndpoint(ENDPOINTS.EVENT)
+        .update(event.id, JSON.stringify(event))
+        .then(() => {
+          console.log("Event updated successfully");
+        })
+        .catch((err) => console.log(err));
+    }
   }, [event]);
 
   return (
