@@ -23,6 +23,34 @@ export const StyledSmallCard = styled.div
     position: absolute;
     bottom: 0;
   }
+  
+  > .delete {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border: 0;
+    background-color: inherit;
+    display: block;
+    cursor: pointer;
+    color: #bc3926;
+    float: left;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    font-size: 2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0 10px;
+
+    ${props => props && css`
+    transition: 0.1s;
+
+    &:hover {
+      background: #bc3926;
+      color: #fff;
+    }
+  `};
+  }
 
   > .date-info {
     width: 205px;

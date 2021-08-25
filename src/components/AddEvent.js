@@ -70,6 +70,7 @@ const AddEvent = () => {
         Location:
         <input
           name="location"
+          type="text"
           value={event.location}
           onChange={handleChange}
           required
@@ -80,6 +81,7 @@ const AddEvent = () => {
         City:
         <input
           name="city"
+          type="text"
           value={event.city}
           onChange={handleChange}
           required
@@ -105,7 +107,7 @@ const AddEvent = () => {
           onChange={handleChange}
           required
         >
-          <option key=""></option>
+          <option key=""/>
 
           <option>Category 1</option>
           <option>Category 2</option>

@@ -4,6 +4,7 @@ import EventList from "../elements/EventList";
 import DetailedEvent from "../elements/DetailedEvent";
 import Navbar from "../elements/Navbar";
 import AddEvent from "../AddEvent";
+import EditEvent from "../EditEvent";
 
 
 function App() {
@@ -21,6 +22,9 @@ function App() {
           <Route path="/events/add">
             <AddEvent />
           </Route>
+          {/*<Route path="/events/edit/:eventId">*/}
+          {/*  <EditEvent />*/}
+          {/*</Route>*/}
           <Route path="/favorites">
             <div>Favorites</div>
           </Route>
