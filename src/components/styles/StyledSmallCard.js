@@ -7,7 +7,7 @@ export const StyledSmallCard = styled.div
   border-radius: 2px;
   display: inline-block;
   width: 310px;
-  height: 370px;
+  height: 350px;
   margin: 1rem;
   color: #54514d;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -36,8 +36,6 @@ export const StyledSmallCard = styled.div
       font-size: 1.4em;
       font-weight: 300;
       margin-bottom: .35em;
-      text-rendering: optimizeLegibility;
-      -webkit-font-smoothing: subpixel-antialiased;
     }
 
     > span.month {
@@ -63,9 +61,6 @@ export const StyledSmallCard = styled.div
     outline: 0;
     font-size: 100%;
     vertical-align: baseline;
-    background: 0 0;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: subpixel-antialiased;
 
     > em.hour {
       border-bottom: 1px solid #eee4ca;
@@ -90,13 +85,11 @@ export const StyledSmallCard = styled.div
 
   .name {
     color: #bc9137;
+    //height: 30px;
     text-decoration: none;
     cursor: pointer;
     font-weight: 800;
     text-align: center;
-    
-    -webkit-text-size-adjust: 100%;
-    //line-height: 2em;
     font-size: 1.4em;
 
   }

@@ -1,13 +1,14 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import EventList from "./components/EventList";
-import DetailedEvent from "./components/DetailedEvent";
+import EventList from "../elements/EventList";
+import DetailedEvent from "../elements/DetailedEvent";
+import Navbar from "../elements/Navbar";
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <div>Navbar</div>
+        <Navbar />
         <Switch>
           <Route exact path="/">
             <EventList />

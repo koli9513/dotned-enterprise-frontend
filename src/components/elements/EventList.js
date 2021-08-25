@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import { createAPIEndpoint, ENDPOINTS } from "../api";
-import EventCard from "./elements/EventCard";
-import {StyledCardContainer} from "./styles/StyledCardContainer";
+import { createAPIEndpoint, ENDPOINTS } from "../../api";
+import EventCard from "./EventCard";
+import {StyledCardContainer} from "../styles/StyledCardContainer";
 
 const EventList = () => {
   const [events, setEvents] = useState([]);

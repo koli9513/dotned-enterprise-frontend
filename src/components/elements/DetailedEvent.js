@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
-import {createAPIEndpoint, ENDPOINTS} from "../api";
+import {createAPIEndpoint, ENDPOINTS} from "../../api";
 import {useParams} from "react-router-dom";
-import {StyledDetailedEvent} from "./styles/StyledDetailedEvent";
+import {StyledDetailedEvent} from "../styles/StyledDetailedEvent";
 
 const DetailedEvent = () => {
     const [event, setEvent] = useState([]);
