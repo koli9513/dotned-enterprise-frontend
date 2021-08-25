@@ -6,5 +6,5 @@ export const StyledNavbar = styled.div`
   border-bottom: 5px solid #bc3926;
   width: 100%;
   //float: left;
-  text-align: center;
+  //text-align: center;
 `;
