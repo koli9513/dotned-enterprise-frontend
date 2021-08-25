@@ -3,35 +3,38 @@ import { createAPIEndpoint, ENDPOINTS } from "../../api";
 import EventCard from "./EventCard";
 import { StyledCardContainer } from "../styles/StyledCardContainer";
 
-const EventList = () => {
+const FavoriteList = () => {
   const [events, setEvents] = useState([]);
-  const [requestData, setRequestData] = useState({});
 
   useEffect(() => {
-    createAPIEndpoint(ENDPOINTS.EVENT)
+    createAPIEndpoint(ENDPOINTS.FAVORITE)
       .fetchAll()
       .then((res) => {
         setEvents(res.data);
       })
       .catch((err) => console.log(err));
-  }, [requestData]);
+  }, []);
 
   return (
     <StyledCardContainer>
       {events.map((event, index) => (
         <EventCard
           key={index}
-          event={event}
+          image={event.image}
+          city={event.city}
+          name={event.name}
           year={event.formattedDate[0]}
           month={event.formattedDate[1]}
           day={event.formattedDate[2]}
           hour={event.formattedDate[3]}
           minute={event.formattedDate[4]}
-          setRequestData={setRequestData}
+          id={event.id}
+          category={event.category}
+          isFavorite={event.isFavorite}
         />
       ))}
     </StyledCardContainer>
   );
 };
 
-export default EventList;
+export default FavoriteList;

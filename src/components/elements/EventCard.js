@@ -1,12 +1,16 @@
+import React, { useState, useEffect, useRef } from "react";
+import { createAPIEndpoint, ENDPOINTS } from "../../api";
 import { StyledSmallCard } from "../styles/StyledSmallCard";
 import { Link } from "react-router-dom";
 import { StyledFavoriteButton } from "../styles/StyledFavoriteButton";
-import { createAPIEndpoint, ENDPOINTS } from "../../api";
 
 const EventCard = (props) => {
-  const detailedViewUrl = `/event/${props.id}`;
+  const [event, setEvent] = useState(props.event);
+  const detailedViewUrl = `/event/${event.id}`;
 
-  const deleteEvent = () => {
+  const isInitialMount = useRef(true);
+  
+    const deleteEvent = () => {
     createAPIEndpoint(ENDPOINTS.EVENT)
       .delete(JSON.stringify(props.id))
       .then(() => {
@@ -16,9 +20,36 @@ const EventCard = (props) => {
       .catch((err) => console.log(err));
   };
 
+  const removeFromFavorites = () => {
+    setEvent((prevState) => ({
+      ...prevState,
+      isFavorite: false,
+    }));
+  };
+
+  const addToFavorites = () => {
+    setEvent((prevState) => ({
+      ...prevState,
+      isFavorite: true,
+    }));
+  };
+
+  useEffect(() => {
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+    } else {
+      createAPIEndpoint(ENDPOINTS.EVENT)
+        .update(event.id, JSON.stringify(event))
+        .then(() => {
+          console.log("Event updated successfully");
+        })
+        .catch((err) => console.log(err));
+    }
+  }, [event]);
+
   return (
     <StyledSmallCard>
-      <img src={props.image} alt="small card img" />
+      <img src={event.image} alt="small card img" />
       <div className="date-info">
         <span className="year">{props.year} </span>
         <span className="month">{props.month}</span>
@@ -28,18 +59,27 @@ const EventCard = (props) => {
       <div className="time-info">
         <em className="hour">{props.hour}</em>
         <em className="minute">{props.minute}</em>
-        <StyledFavoriteButton />
+        {event.isFavorite ? (
+          <StyledFavoriteButton
+            addedToFavorite={event.isFavorite}
+            onClick={removeFromFavorites}
+          />
+        ) : (
+          <StyledFavoriteButton
+            addedToFavorite={event.isFavorite}
+            onClick={addToFavorites}
+          />
+        )}
       </div>
       <Link to={detailedViewUrl} className="name">
-        {props.name}
+        {event.name}
       </Link>
-
       <button className="delete" onClick={deleteEvent}>
         🗑
       </button>
 
       <div className="tags">
-        {props.category}, <span>{props.city}</span>
+        {event.category}, <span>{event.city}</span>
       </div>
     </StyledSmallCard>
   );
