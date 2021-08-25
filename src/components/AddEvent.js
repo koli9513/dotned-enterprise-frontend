@@ -14,6 +14,8 @@ const AddEvent = () => {
     eventUrl: "",
     userId: 1,
     date: "2021-10-12T19:30",
+    category: "",
+    subtitle: ""
     //eventCategory: "",
   });
 
@@ -55,11 +57,21 @@ const AddEvent = () => {
         />
       </label>
 
+        <label>
+            Subtitle:
+            <input
+                name="subtitle"
+                type="text"
+                value={event.subtitle}
+                onChange={handleChange}
+                required
+            />
+        </label>
+
       <label>
         Description:
         <textarea
           name="description"
-          type="text"
           value={event.description}
           onChange={handleChange}
           required
@@ -102,16 +114,16 @@ const AddEvent = () => {
       <label>
         Category:
         <select
-          name="eventCategory"
-          value={event.eventCategory}
+          name="category"
+          value={event.category}
           onChange={handleChange}
           required
         >
           <option key=""/>
 
-          <option>Category 1</option>
-          <option>Category 2</option>
-          <option>Category 3</option>
+          <option>THEATER</option>
+          <option>CONCERT</option>
+          <option>FESTIVAL</option>
         </select>
       </label>
 

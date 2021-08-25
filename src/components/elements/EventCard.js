@@ -76,7 +76,7 @@ const EventCard = (props) => {
         {event.name}
       </Link>
         <br/>
-        <span className="subtitle">{props.subtitle}</span>
+        <span className="subtitle">{event.subtitle}</span>
 
         <button className="delete" onClick={deleteEvent}>
         🗑
