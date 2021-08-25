@@ -26,6 +26,7 @@ export const StyledDetailedEvent = styled.div
       font-weight: 400;
       line-height: 1.5em;
       width: 64%;
+      min-height: 260px;
     }
 
     > .box-right {
@@ -35,6 +36,7 @@ export const StyledDetailedEvent = styled.div
       position: absolute;
       width: 27%;
       top: 40px;
+      height: 190px;
       right: 20px;
       color: #4e5154;
       background-color: #e2e1e0;

@@ -75,7 +75,10 @@ const EventCard = (props) => {
       <Link to={detailedViewUrl} className="name">
         {event.name}
       </Link>
-      <button className="delete" onClick={deleteEvent}>
+        <br/>
+        <span className="subtitle">{event.subtitle}</span>
+
+        <button className="delete" onClick={deleteEvent}>
         🗑
       </button>
 

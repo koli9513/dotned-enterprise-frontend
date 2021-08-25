@@ -12,7 +12,7 @@ export const StyledSmallCard = styled.div
   color: #54514d;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-
+  
   > img {
     width: 300px;
     height: 200px;
@@ -119,7 +119,13 @@ export const StyledSmallCard = styled.div
     font-weight: 800;
     text-align: center;
     font-size: 1.4em;
+  }
 
+  > .subtitle {
+    color: #bc9137;
+    font-style: italic;
+    text-align: left;
+    
   }
 
 
