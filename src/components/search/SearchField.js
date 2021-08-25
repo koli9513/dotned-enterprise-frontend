@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {useHistory} from "react-router-dom";
+import "../styles/search.css";
 
 const SearchField = () => {
     let history = useHistory();
@@ -19,10 +20,8 @@ const SearchField = () => {
                 e.preventDefault();
                 history.push(`/search/${search.searchTerm}`)
             }} >
-                <input onChange={getSearchTerm} type="text"/>
-
-                <button type="submit">Search</button>
-
+                <input className="search-txt" placeholder="search events..." onChange={getSearchTerm} type="text" name=""/>
+                <button type="submit" className="search-btn"/>
             </form>
         </div>
     );
