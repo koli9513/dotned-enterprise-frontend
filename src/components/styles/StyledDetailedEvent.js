@@ -19,6 +19,8 @@ export const StyledDetailedEvent = styled.div
   }
 
   > .details {
+    min-width: 1490px;
+    min-height: 340px;
     > .box-left {
       display: block;
       color: #4e5154;
