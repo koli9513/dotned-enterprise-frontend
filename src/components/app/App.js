@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import EventList from "../elements/EventList";
 import DetailedEvent from "../elements/DetailedEvent";
 import Navbar from "../elements/Navbar";
-import AddEvent from "./components/AddEvent";
+import AddEvent from "../AddEvent";
 
 
 function App() {
