@@ -9,6 +9,16 @@ const EventCard = (props) => {
   const detailedViewUrl = `/event/${event.id}`;
 
   const isInitialMount = useRef(true);
+  
+    const deleteEvent = () => {
+    createAPIEndpoint(ENDPOINTS.EVENT)
+      .delete(JSON.stringify(props.id))
+      .then(() => {
+        props.setRequestData({});
+        console.log("Event deleted successfully");
+      })
+      .catch((err) => console.log(err));
+  };
 
   const removeFromFavorites = () => {
     setEvent((prevState) => ({
@@ -64,6 +74,10 @@ const EventCard = (props) => {
       <Link to={detailedViewUrl} className="name">
         {event.name}
       </Link>
+      <button className="delete" onClick={deleteEvent}>
+        🗑
+      </button>
+
       <div className="tags">
         {event.category}, <span>{event.city}</span>
       </div>

@@ -5,6 +5,7 @@ import { StyledCardContainer } from "../styles/StyledCardContainer";
 
 const EventList = () => {
   const [events, setEvents] = useState([]);
+  const [requestData, setRequestData] = useState({});
 
   useEffect(() => {
     createAPIEndpoint(ENDPOINTS.EVENT)
@@ -13,7 +14,7 @@ const EventList = () => {
         setEvents(res.data);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [requestData]);
 
   return (
     <StyledCardContainer>
@@ -26,6 +27,7 @@ const EventList = () => {
           day={event.formattedDate[2]}
           hour={event.formattedDate[3]}
           minute={event.formattedDate[4]}
+          setRequestData={setRequestData}
         />
       ))}
     </StyledCardContainer>
