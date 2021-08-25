@@ -4,6 +4,7 @@ import EventList from "../elements/EventList";
 import DetailedEvent from "../elements/DetailedEvent";
 import Navbar from "../elements/Navbar";
 import AddEvent from "../AddEvent";
+import SearchList from "../search/SearchList";
 
 
 function App() {
@@ -31,7 +32,7 @@ function App() {
             <div>Events by category and date</div>
           </Route>
           <Route path="/search/:searchTerm">
-
+            <SearchList/>
           </Route>
         </Switch>
       </div>

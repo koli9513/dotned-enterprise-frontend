@@ -13,9 +13,10 @@ const Navbar = () => {
                 <StyledNavbarLink to="/favorites">Favorites</StyledNavbarLink>
                 <StyledNavbarLink to="/login">Login</StyledNavbarLink>
                 <StyledNavbarLink to="/register">Register</StyledNavbarLink>
-                <StyledNavbarLink ><SearchField/></StyledNavbarLink>
+            <div className="search-box">
+            <StyledSearchButton ><SearchField/></StyledSearchButton>
+            </div>
         </StyledNavbar>
-        <StyledSearchButton>o</StyledSearchButton>
         </>
     );
 };
