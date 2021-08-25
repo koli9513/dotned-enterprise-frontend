@@ -1,16 +1,19 @@
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import EventList from "./components/EventList";
+import EventList from "../elements/EventList";
+import DetailedEvent from "../elements/DetailedEvent";
+import Navbar from "../elements/Navbar";
 import AddEvent from "./components/AddEvent";
+
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <div>Navbar</div>
+        <Navbar />
         <Switch>
           <Route exact path="/">
-            <div>Home</div>
+            <EventList />
           </Route>
           <Route exact path="/events">
             <EventList />
@@ -21,8 +24,8 @@ function App() {
           <Route path="/favorites">
             <div>Favorites</div>
           </Route>
-          <Route path="/events/:id">
-            <div>Event details</div>
+          <Route path="/event/:eventId">
+            <DetailedEvent />
           </Route>
           <Route path="/events/:category/:date">
             <div>Events by category and date</div>
