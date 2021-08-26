@@ -22,17 +22,10 @@ const EventCard = (props) => {
       .catch((err) => console.log(err));
   };
 
-  const removeFromFavorites = () => {
+  const updateFavoriteStatus = () => {
     setEvent((prevState) => ({
       ...prevState,
-      isFavorite: false,
-    }));
-  };
-
-  const addToFavorites = () => {
-    setEvent((prevState) => ({
-      ...prevState,
-      isFavorite: true,
+      isFavorite: !prevState.isFavorite,
     }));
   };
 
@@ -65,28 +58,35 @@ const EventCard = (props) => {
         {event.isFavorite ? (
           <StyledFavoriteButton
             addedToFavorite={event.isFavorite}
-            onClick={removeFromFavorites}
+            onClick={updateFavoriteStatus}
           />
         ) : (
           <StyledFavoriteButton
             addedToFavorite={event.isFavorite}
-            onClick={addToFavorites}
+            onClick={updateFavoriteStatus}
           />
         )}
       </div>
       <Link to={detailedViewUrl} className="name">
         {event.name}
       </Link>
-        <br/>
-        <span className="subtitle">{event.subtitle}</span>
-        <Link to={editUrl} className="edit">
-            🖊
-        </Link>
-        <button className="delete" onClick={deleteEvent}>🗑</button>
+      <br />
+      <span className="subtitle">{event.subtitle}</span>
+      <Link to={editUrl} className="edit">
+        🖊
+      </Link>
+      <button className="delete" onClick={deleteEvent}>
+        🗑
+      </button>
 
       <div className="tags">
-          <Link className="tag-link" to={categoryFilterUrl}>{event.category}</Link>,
-          <Link className="tag-link" to={cityFilterUrl}>{event.city}</Link>
+        <Link className="tag-link" to={categoryFilterUrl}>
+          {event.category}
+        </Link>
+        ,
+        <Link className="tag-link" to={cityFilterUrl}>
+          {event.city}
+        </Link>
       </div>
     </StyledSmallCard>
   );
