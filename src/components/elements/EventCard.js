@@ -7,7 +7,7 @@ import { StyledFavoriteButton } from "../styles/StyledFavoriteButton";
 const EventCard = (props) => {
   const [event, setEvent] = useState(props.event);
   const detailedViewUrl = `/event/${event.id}`;
-
+  const editUrl = `/events/edit/${event.id}`;
   const isInitialMount = useRef(true);
 
   const deleteEvent = () => {
@@ -77,10 +77,10 @@ const EventCard = (props) => {
       </Link>
         <br/>
         <span className="subtitle">{event.subtitle}</span>
-
-        <button className="delete" onClick={deleteEvent}>
-        🗑
-      </button>
+        <Link to={editUrl} className="edit">
+            🖊
+        </Link>
+        <button className="delete" onClick={deleteEvent}>🗑</button>
 
       <div className="tags">
         {event.category}, <span>{event.city}</span>

@@ -5,6 +5,7 @@ import FavoriteList from "../elements/FavoriteList";
 import DetailedEvent from "../elements/DetailedEvent";
 import Navbar from "../elements/Navbar";
 import AddEvent from "../AddEvent";
+import EditEvent from "../EditEvent";
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
           </Route>
           <Route path="/events/add">
             <AddEvent />
+          </Route>
+          <Route path="/events/edit/:eventId">
+            <EditEvent />
           </Route>
           <Route path="/favorites">
             <FavoriteList />

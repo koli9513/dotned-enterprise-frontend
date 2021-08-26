@@ -12,7 +12,7 @@ export const StyledSmallCard = styled.div
   color: #54514d;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-  
+
   > img {
     width: 300px;
     height: 200px;
@@ -23,24 +23,49 @@ export const StyledSmallCard = styled.div
     position: absolute;
     bottom: 0;
   }
-  
+
   > .delete {
     position: absolute;
     bottom: 0;
     right: 0;
     border: 0;
-    background-color: inherit;
     display: block;
     cursor: pointer;
     color: #bc3926;
     float: left;
-    height: 34px;
-    line-height: 34px;
+    height: 33px;
+    line-height: 33px;
     text-align: center;
     font-size: 2em;
     text-transform: uppercase;
     text-decoration: none;
     padding: 0 10px;
+    
+  ${props => props && css`
+    transition: 0.1s;
+
+    &:hover {
+      background: #bc3926;
+      color: #fff;
+    }
+  `};
+}
+
+  > .edit {
+    position: absolute;
+    color: #bc3926;
+    float: right;
+    height: 33px;
+    line-height: 33px;
+    text-align: center;
+    font-size: 2em;
+    margin-top: 6px;
+    padding: 0 5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: block;
+    right: 14%;
+    bottom: 0;
 
     ${props => props && css`
     transition: 0.1s;
