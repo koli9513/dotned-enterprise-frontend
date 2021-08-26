@@ -9,14 +9,14 @@ const AddEvent = () => {
     name: "",
     isFavorite: false,
     description: "",
-    image: "",
+    image: "https://www.smartdatajob.com/images/joomlart/demo/default.jpg",
     location: "",
     city: "",
     eventUrl: "",
     userId: 1,
     date: "2021-08-27T9:32",
     category: "",
-    subtitle: ""
+    subtitle: "",
   });
 
   const handleSubmit = (event) => {
@@ -43,7 +43,7 @@ const AddEvent = () => {
   };
 
   return (
-      <EventForm onSubmit={handleSubmit} event={event} onChange={handleChange}/>
+    <EventForm onSubmit={handleSubmit} event={event} onChange={handleChange} />
   );
 };
 
