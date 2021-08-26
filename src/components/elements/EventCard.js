@@ -51,7 +51,6 @@ const EventCard = (props) => {
   return (
     <StyledSmallCard>
       <img src={event.image} alt="small card img" />
-        <Link to={editUrl}>EDIT</Link>
       <div className="date-info">
         <span className="year">{props.year} </span>
         <span className="month">{props.month}</span>
@@ -78,10 +77,10 @@ const EventCard = (props) => {
       </Link>
         <br/>
         <span className="subtitle">{event.subtitle}</span>
-
-        <button className="delete" onClick={deleteEvent}>
-        🗑
-      </button>
+        <Link to={editUrl} className="edit">
+            🖊
+        </Link>
+        <button className="delete" onClick={deleteEvent}>🗑</button>
 
       <div className="tags">
         {event.category}, <span>{event.city}</span>

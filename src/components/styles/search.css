@@ -1,6 +1,6 @@
 .search-box
 {
-    position : absolute;
+    position : fixed;
     transform : translate(-50%,-50%);
     background : #bc3926;
     height : 40px;
