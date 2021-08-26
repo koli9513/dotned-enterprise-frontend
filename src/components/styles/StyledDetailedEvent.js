@@ -2,11 +2,10 @@ import styled from "styled-components";
 
 export const StyledDetailedEvent = styled.div
     .attrs({className: 'card'})`
-  position: relative;
+  margin: 40px 20px;
   background: #f7f7f7;
   border-radius: 2px;
   display: inline-block;
-  margin: 1rem;
   color: #54514d;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
@@ -15,7 +14,7 @@ export const StyledDetailedEvent = styled.div
     position: absolute;
     width: 800px;
     height: 550px;
-    left: 23%;
+    border: 5px solid #54514d;
   }
 
   > .details {
@@ -26,22 +25,28 @@ export const StyledDetailedEvent = styled.div
       font-weight: 400;
       line-height: 1.5em;
       width: 64%;
+      min-height: 260px;
     }
 
     > .box-right {
       font-size: 1.4em;
       font-weight: 400;
       display: block;
-      position: absolute;
+      position: fixed;
+      z-index: 100;
       width: 27%;
       top: 40px;
+      height: 190px;
       right: 20px;
       color: #4e5154;
       background-color: #e2e1e0;
       border: 1px solid #e2e2e2;
       border-left: 7px solid #bc9137;
-      margin: 1em 0 1em 1em;
+      margin: 3em 0 1em 1.5em;
       padding: 2%;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+      
 
       > .location {
         color: #84878c;

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { createAPIEndpoint, ENDPOINTS } from "../api";
 import { useHistory } from "react-router-dom";
+import EventForm from "./elements/EventForm";
 
 const AddEvent = () => {
   let history = useHistory();
@@ -8,13 +9,14 @@ const AddEvent = () => {
     name: "",
     isFavorite: false,
     description: "",
-    image: "",
+    image: "https://www.smartdatajob.com/images/joomlart/demo/default.jpg",
     location: "",
     city: "",
     eventUrl: "",
     userId: 1,
-    date: "2021-10-12T19:30",
-    //eventCategory: "",
+    date: "2021-08-27T9:32",
+    category: "",
+    subtitle: "",
   });
 
   const handleSubmit = (event) => {
@@ -41,91 +43,7 @@ const AddEvent = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Add an event</h1>
-
-      <label>
-        Name:
-        <input
-          name="name"
-          type="text"
-          value={event.name}
-          onChange={handleChange}
-          required
-        />
-      </label>
-
-      <label>
-        Description:
-        <textarea
-          name="description"
-          type="text"
-          value={event.description}
-          onChange={handleChange}
-          required
-        />
-      </label>
-
-      <label>
-        Location:
-        <input
-          name="location"
-          value={event.location}
-          onChange={handleChange}
-          required
-        />
-      </label>
-
-      <label>
-        City:
-        <input
-          name="city"
-          value={event.city}
-          onChange={handleChange}
-          required
-        />
-      </label>
-
-      <label>
-        Event URL:
-        <input
-          name="eventUrl"
-          type="text"
-          value={event.eventUrl}
-          onChange={handleChange}
-          required
-        />
-      </label>
-
-      <label>
-        Category:
-        <select
-          name="eventCategory"
-          value={event.eventCategory}
-          onChange={handleChange}
-          required
-        >
-          <option key=""></option>
-
-          <option>Category 1</option>
-          <option>Category 2</option>
-          <option>Category 3</option>
-        </select>
-      </label>
-
-      <label>
-        Date:
-        <input
-          name="date"
-          type="datetime-local"
-          value={event.date}
-          onChange={handleChange}
-          required
-        />
-      </label>
-
-      <button>Submit</button>
-    </form>
+    <EventForm onSubmit={handleSubmit} event={event} onChange={handleChange} />
   );
 };
 

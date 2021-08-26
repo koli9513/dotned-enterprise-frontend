@@ -22,6 +22,73 @@ export const StyledSmallCard = styled.div
   > .tags {
     position: absolute;
     bottom: 0;
+
+    > .tag-link {
+      color: #bc3926;
+      text-decoration: none;
+
+      ${props => props && css`
+    transition: 0.1s;
+
+    &:hover {
+      background: #bc3926;
+      color: #fff;
+    }
+  `};
+    }
+  }
+
+  > .delete {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border: 0;
+    display: block;
+    cursor: pointer;
+    color: #bc3926;
+    float: left;
+    height: 33px;
+    line-height: 33px;
+    text-align: center;
+    font-size: 2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0 10px;
+    
+  ${props => props && css`
+    transition: 0.1s;
+
+    &:hover {
+      background: #bc3926;
+      color: #fff;
+    }
+  `};
+}
+
+  > .edit {
+    position: absolute;
+    color: #bc3926;
+    float: right;
+    height: 33px;
+    line-height: 33px;
+    text-align: center;
+    font-size: 2em;
+    margin-top: 6px;
+    padding: 0 5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: block;
+    right: 14%;
+    bottom: 0;
+
+    ${props => props && css`
+    transition: 0.1s;
+
+    &:hover {
+      background: #bc3926;
+      color: #fff;
+    }
+  `};
   }
 
   > .date-info {
@@ -91,7 +158,13 @@ export const StyledSmallCard = styled.div
     font-weight: 800;
     text-align: center;
     font-size: 1.4em;
+  }
 
+  > .subtitle {
+    color: #bc9137;
+    font-style: italic;
+    text-align: left;
+    
   }
 
 

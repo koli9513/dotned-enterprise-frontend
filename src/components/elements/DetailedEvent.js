@@ -45,7 +45,7 @@ const DetailedEvent = () => {
                             <span className="minute">{event.minute}</span>
                         </div>
                         <div className="location" dangerouslySetInnerHTML={{__html :event.location}} />
-                        <a className="link" target="_blank" href={event.eventUrl}>Click for event details</a>
+                        <a className="link" rel="noreferrer" target="_blank" href={event.eventUrl}>Click for details</a>
                     </div>
             </div>
             <img src={event.image} alt="big card img"/>
