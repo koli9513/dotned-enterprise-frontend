@@ -17,7 +17,7 @@ const EventForm = (props) => {
 
             <label className="label">SUBTITLE:</label>
             <input className="input" id="auto-width"
-                   name="name"
+                   name="subtitle"
                    type="text"
                    value={props.event.subtitle}
                    onChange={props.onChange}
@@ -67,7 +67,6 @@ const EventForm = (props) => {
                     onChange={props.onChange}
                     required
                 >
-                    <option key=""/>
                     <option value="THEATER">THEATER</option>
                     <option value="FESTIVAL">FESTIVAL</option>
                     <option value="CONCERT">CONCERT</option>
