@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledCardContainer = styled.div
     .attrs({className: 'cards'})`
-  padding: 30px 50px;
+  padding: 60px 50px;
   border-radius: 5px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
