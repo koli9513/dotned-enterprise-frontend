@@ -5,8 +5,13 @@ import FavoriteList from "../elements/FavoriteList";
 import DetailedEvent from "../elements/DetailedEvent";
 import Navbar from "../elements/Navbar";
 import AddEvent from "../AddEvent";
+
+import SearchList from "../search/SearchList";
+
+
 import EditEvent from "../EditEvent";
 import FilteredList from "../elements/FilteredList";
+
 
 function App() {
   return (
@@ -35,9 +40,9 @@ function App() {
           <Route path="/event/:eventId">
             <DetailedEvent />
           </Route>
-          {/*<Route path="/events/:category/:date">*/}
-          {/*  <div>Events by category and date</div>*/}
-          {/*</Route>*/}
+          <Route path="/search/:searchTerm">
+            <SearchList/>
+          </Route>
         </Switch>
       </div>
     </Router>

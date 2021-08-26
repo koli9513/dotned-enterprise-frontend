@@ -9,8 +9,12 @@ const header = {
 
 export const ENDPOINTS = {
   EVENT: "EventItems",
+
+  NAME: "EVentItems/event"
+
   FAVORITE: "EventItems/favorites",
   FILTER: "EventItems/filter",
+
 };
 
 export const createAPIEndpoint = (endpoint) => {
@@ -18,6 +22,8 @@ export const createAPIEndpoint = (endpoint) => {
   return {
     fetchAll: () => axios.get(url),
     fetchById: (id) => axios.get(url + id),
+    fetchByName: (name) => axios.get (url + name),
+
     fetchByFilterTypeFilterWord: (filterType, keyword) => axios.get(url + filterType + "/" + keyword),
     create: (newRecord) => axios.post(url, newRecord, header),
     update: (id, updatedRecord) => axios.put(url + id, updatedRecord, header),
