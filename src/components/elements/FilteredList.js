@@ -4,14 +4,14 @@ import EventCard from "./EventCard";
 import { StyledCardContainer } from "../styles/StyledCardContainer";
 import {useParams} from "react-router-dom";
 
-const CategoryList = () => {
+const FilteredList = () => {
     const [events, setEvents] = useState([]);
     const [requestData, setRequestData] = useState({});
-    const { category } = useParams();
+    const { filterType, keyword } = useParams();
 
     useEffect(() => {
-        createAPIEndpoint(ENDPOINTS.CATEGORY)
-            .fetchByCategory(category)
+        createAPIEndpoint(ENDPOINTS.FILTER)
+            .fetchByFilterTypeFilterWord(filterType, keyword)
             .then((res) => {
                 setEvents(res.data);
                 console.log(res.data)
@@ -37,4 +37,4 @@ const CategoryList = () => {
     );
 };
 
-export default CategoryList;
+export default FilteredList;

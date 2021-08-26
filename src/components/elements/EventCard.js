@@ -8,8 +8,8 @@ const EventCard = (props) => {
   const [event, setEvent] = useState(props.event);
   const detailedViewUrl = `/event/${event.id}`;
   const editUrl = `/events/edit/${event.id}`;
-  const categoryFilterUrl = `/category/${event.category}`;
-  const cityFilterUrl = `/city/${event.city}`;
+  const categoryFilterUrl = `/filter/category/${event.category}`;
+  const cityFilterUrl = `/filter/city/${event.city}`;
   const isInitialMount = useRef(true);
 
   const deleteEvent = () => {
