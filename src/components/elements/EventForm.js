@@ -7,7 +7,7 @@ const EventForm = (props) => {
     <div className="container">
         <div className="inout-container">
             <label className="label">NAME:</label>
-                <input className="input" id="auto-width"
+                <input className="input auto-width-label"
                     name="name"
                     type="text"
                     value={props.event.name}
@@ -16,7 +16,7 @@ const EventForm = (props) => {
                 />
 
             <label className="label">SUBTITLE:</label>
-            <input className="input" id="auto-width"
+            <input className="input auto-width-label"
                    name="subtitle"
                    type="text"
                    value={props.event.subtitle}
@@ -44,7 +44,7 @@ const EventForm = (props) => {
                 />
 
             <label className="label">CITY:</label>
-                <input className="input" id="auto-width"
+                <input className="input auto-width-label"
                     name="city"
                     value={props.event.city}
                     onChange={props.onChange}
@@ -60,8 +60,17 @@ const EventForm = (props) => {
                     required
                 />
 
+            <label className="label">IMAGE URL:</label>
+            <input className="input"
+                   name="image"
+                   type="text"
+                   value={props.event.image}
+                   onChange={props.onChange}
+                   required
+            />
+
             <label className="label">CATEGORY:</label>
-                <select className="input" id="auto-width"
+                <select className="input auto-width-label"
                     name="eventCategory"
                     value={props.event.category}
                     onChange={props.onChange}
@@ -73,7 +82,7 @@ const EventForm = (props) => {
                 </select>
 
             <label className="label">DATE:</label>
-                <input className="input" id="auto-width"
+                <input className="input auto-width-label"
                     name="date"
                     type="datetime-local"
                     value={props.event.date}

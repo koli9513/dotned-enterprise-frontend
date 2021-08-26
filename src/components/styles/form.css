@@ -36,7 +36,7 @@
     padding: 50px;
 }
 
-#auto-width {
+.auto-width-label {
     width: auto;
 }
 
