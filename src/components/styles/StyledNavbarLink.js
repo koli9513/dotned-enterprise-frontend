@@ -5,7 +5,7 @@ export const StyledNavbarLink = styled(Link)`
   position: relative;
   left: 27%;
   font-family: 'PT Serif',Georgia,serif;
-  background: #fffdfd;
+  background: #f1f1f1;
   color: #bc3926;
   float: left;
   height: 34px;
