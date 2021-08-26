@@ -9,9 +9,7 @@ const header = {
 
 export const ENDPOINTS = {
   EVENT: "EventItems",
-
-  NAME: "EVentItems/event"
-
+  NAME: "EventItems/event",
   FAVORITE: "EventItems/favorites",
   FILTER: "EventItems/filter",
 

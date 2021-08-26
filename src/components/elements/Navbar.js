@@ -17,7 +17,6 @@ const Navbar = () => {
             <div className="search-box">
 
             </div>
-        </StyledNavbar>
         <SearchField/>
         </>
     );

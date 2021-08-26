@@ -4,9 +4,9 @@ import {createAPIEndpoint, ENDPOINTS} from "../../api";
 import {StyledCardContainer} from "../styles/StyledCardContainer";
 import EventCard from "../elements/EventCard";
 
-
 const SearchList = () => {
     const [searchedEvents, setSearchedEvents] = useState([]);
+    const [requestData, setRequestData] = useState({});
     const {searchTerm} = useParams();
 
     useEffect(() => {
@@ -16,23 +16,20 @@ const SearchList = () => {
                 setSearchedEvents(res.data);
             })
             .catch((err) => console.log(err));
-    }, [searchTerm])
+    }, [searchTerm, requestData])
 
     return (
         <StyledCardContainer>
-            {searchedEvents.map((event, index) => (
+            {searchedEvents.map((event) => (
                 <EventCard
-                    key={index}
-                    image={event.image}
-                    city={event.city}
-                    name={event.name}
+                    key={event.id}
+                    event={event}
                     year={event.formattedDate[0]}
                     month={event.formattedDate[1]}
                     day={event.formattedDate[2]}
                     hour={event.formattedDate[3]}
                     minute={event.formattedDate[4]}
-                    id={event.id}
-                    category={event.category}
+                    setRequestData={setRequestData}
                 />
             ))}
         </StyledCardContainer>
