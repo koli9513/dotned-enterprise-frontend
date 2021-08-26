@@ -10,21 +10,12 @@ const SearchList = () => {
     const {searchTerm} = useParams();
 
     useEffect(() => {
-        createAPIEndpoint(ENDPOINTS.EVENT)
-            .fetchAll()
+        createAPIEndpoint(ENDPOINTS.NAME)
+            .fetchByName(searchTerm)
             .then((res) => {
                 setSearchedEvents(res.data);
             })
             .catch((err) => console.log(err));
-    }, []);
-
-    useEffect(() => {
-        let x = [...searchedEvents];
-        x = x.filter(y => {
-            return y.name.toLowerCase().includes(searchTerm.toLocaleLowerCase())
-
-        });
-        setSearchedEvents(x);
     }, [searchTerm])
 
     return (

@@ -9,6 +9,7 @@ const header = {
 
 export const ENDPOINTS = {
   EVENT: "EventItems",
+  NAME: "EVentItems/event"
 };
 
 export const createAPIEndpoint = (endpoint) => {
@@ -16,6 +17,7 @@ export const createAPIEndpoint = (endpoint) => {
   return {
     fetchAll: () => axios.get(url),
     fetchById: (id) => axios.get(url + id),
+    fetchByName: (name) => axios.get (url + name),
     create: (newRecord) => axios.post(url, newRecord, header),
     update: (id, updatedRecord) => axios.put(url + id, updatedRecord, header),
     delete: (id) => axios.delete(url + id),
