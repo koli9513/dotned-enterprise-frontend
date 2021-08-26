@@ -6,6 +6,9 @@ import DetailedEvent from "../elements/DetailedEvent";
 import Navbar from "../elements/Navbar";
 import AddEvent from "../AddEvent";
 import EditEvent from "../EditEvent";
+import FilteredList from "../elements/CategoryList";
+import CategoryList from "../elements/CategoryList";
+import CityList from "../elements/CityList";
 
 function App() {
   return (
@@ -19,6 +22,12 @@ function App() {
           <Route exact path="/events">
             <EventList />
           </Route>
+          <Route exact path="/category/:category">
+            <CategoryList />
+          </Route>
+          <Route exact path="/city/:city">
+            <CityList />
+          </Route>
           <Route path="/events/add">
             <AddEvent />
           </Route>
@@ -31,9 +40,9 @@ function App() {
           <Route path="/event/:eventId">
             <DetailedEvent />
           </Route>
-          <Route path="/events/:category/:date">
-            <div>Events by category and date</div>
-          </Route>
+          {/*<Route path="/events/:category/:date">*/}
+          {/*  <div>Events by category and date</div>*/}
+          {/*</Route>*/}
         </Switch>
       </div>
     </Router>

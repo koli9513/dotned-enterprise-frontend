@@ -8,6 +8,8 @@ const EventCard = (props) => {
   const [event, setEvent] = useState(props.event);
   const detailedViewUrl = `/event/${event.id}`;
   const editUrl = `/events/edit/${event.id}`;
+  const categoryFilterUrl = `/category/${event.category}`;
+  const cityFilterUrl = `/city/${event.city}`;
   const isInitialMount = useRef(true);
 
   const deleteEvent = () => {
@@ -83,7 +85,8 @@ const EventCard = (props) => {
         <button className="delete" onClick={deleteEvent}>🗑</button>
 
       <div className="tags">
-        {event.category}, <span>{event.city}</span>
+          <Link className="tag-link" to={categoryFilterUrl}>{event.category}</Link>,
+          <Link className="tag-link" to={cityFilterUrl}>{event.city}</Link>
       </div>
     </StyledSmallCard>
   );

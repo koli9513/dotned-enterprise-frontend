@@ -22,6 +22,20 @@ export const StyledSmallCard = styled.div
   > .tags {
     position: absolute;
     bottom: 0;
+
+    > .tag-link {
+      color: #bc3926;
+      text-decoration: none;
+
+      ${props => props && css`
+    transition: 0.1s;
+
+    &:hover {
+      background: #bc3926;
+      color: #fff;
+    }
+  `};
+    }
   }
 
   > .delete {
