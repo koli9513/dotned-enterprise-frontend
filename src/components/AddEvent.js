@@ -116,7 +116,7 @@ const AddEvent = () => {
     city: "",
     eventUrl: "",
     userId: 1,
-    date: "2021-10-12T19:30",
+    date: "2021-08-27T9:32",
     category: "",
     subtitle: ""
   });
