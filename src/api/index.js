@@ -21,7 +21,6 @@ export const createAPIEndpoint = (endpoint) => {
     fetchAll: () => axios.get(url),
     fetchById: (id) => axios.get(url + id),
     fetchByName: (name) => axios.get (url + name),
-
     fetchByFilterTypeFilterWord: (filterType, keyword) => axios.get(url + filterType + "/" + keyword),
     create: (newRecord) => axios.post(url, newRecord, header),
     update: (id, updatedRecord) => axios.put(url + id, updatedRecord, header),

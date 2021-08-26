@@ -9,7 +9,6 @@ const DetailedEvent = () => {
 
     useEffect(() => {
         createAPIEndpoint(ENDPOINTS.EVENT)
-
             .fetchById(eventId)
             .then((res) => {
                 const eventFromServer = {

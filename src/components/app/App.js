@@ -5,10 +5,7 @@ import FavoriteList from "../elements/FavoriteList";
 import DetailedEvent from "../elements/DetailedEvent";
 import Navbar from "../elements/Navbar";
 import AddEvent from "../AddEvent";
-
 import SearchList from "../search/SearchList";
-
-
 import EditEvent from "../EditEvent";
 import FilteredList from "../elements/FilteredList";
 
