@@ -71,14 +71,14 @@ const EventForm = (props) => {
 
             <label className="label">CATEGORY:</label>
                 <select className="input auto-width-label"
-                    name="eventCategory"
+                    name="category"
                     value={props.event.category}
                     onChange={props.onChange}
                     required
                 >
-                    <option value="THEATER">THEATER</option>
-                    <option value="FESTIVAL">FESTIVAL</option>
-                    <option value="CONCERT">CONCERT</option>
+                    <option>THEATER</option>
+                    <option>FESTIVAL</option>
+                    <option>CONCERT</option>
                 </select>
 
             <label className="label">DATE:</label>
