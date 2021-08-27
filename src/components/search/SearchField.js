@@ -11,7 +11,6 @@ const SearchField = () => {
 
     const getSearchTerm = (e) => {
         setSearch({ ...search, searchTerm: e.target.value });
-        console.log(search.searchTerm)
     };
 
     return (

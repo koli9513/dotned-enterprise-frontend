@@ -36,7 +36,15 @@
     transition : 0.4s;
     line-height: 40px;
     width : 0;
+    font-family: 'PT Serif',Georgia,serif;
 }
+
+::placeholder {
+    color: #bdbdbd;
+    font-style: italic;
+    font-family: 'PT Serif',Georgia,serif;
+}
+
 form:hover > .search-txt
 {
     width: 240px;

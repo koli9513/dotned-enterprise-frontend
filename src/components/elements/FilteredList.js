@@ -14,7 +14,6 @@ const FilteredList = () => {
             .fetchByFilterTypeFilterWord(filterType, keyword)
             .then((res) => {
                 setEvents(res.data);
-                console.log(res.data)
             })
             .catch((err) => console.log(err));
     }, [requestData]);

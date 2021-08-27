@@ -28,7 +28,6 @@ const EditEvent = () => {
         createAPIEndpoint(ENDPOINTS.EVENT)
             .update(eventId, JSON.stringify(event))
             .then(() => {
-                console.log("Event updated successfully");
                 history.push("/events");
             })
             .catch((err) => console.log(event));

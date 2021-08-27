@@ -28,7 +28,6 @@ const AddEvent = () => {
     createAPIEndpoint(ENDPOINTS.EVENT)
       .create(JSON.stringify(event))
       .then(() => {
-        console.log("Event saved successfully");
         history.push("/events");
       })
       .catch((err) => console.log(err));

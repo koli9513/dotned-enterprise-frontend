@@ -21,7 +21,6 @@ const EventForm = (props) => {
                    type="text"
                    value={props.event.subtitle}
                    onChange={props.onChange}
-                   required
             />
 
 
@@ -31,7 +30,6 @@ const EventForm = (props) => {
                     type="text"
                     value={props.event.description}
                     onChange={props.onChange}
-                    required
                 />
 
 
@@ -40,7 +38,6 @@ const EventForm = (props) => {
                     name="location"
                     value={props.event.location}
                     onChange={props.onChange}
-                    required
                 />
 
             <label className="label">CITY:</label>

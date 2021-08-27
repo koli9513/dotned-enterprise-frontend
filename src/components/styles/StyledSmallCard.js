@@ -12,6 +12,7 @@ export const StyledSmallCard = styled.div
   color: #54514d;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+  
 
   > img {
     width: 300px;
@@ -22,6 +23,7 @@ export const StyledSmallCard = styled.div
   > .tags {
     position: absolute;
     bottom: 0;
+    font-family: 'PT Serif',Georgia,serif;
 
     > .tag-link {
       color: #bc3926;

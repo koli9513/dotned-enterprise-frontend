@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 
 export const StyledNavbarLink = styled(Link)`
   position: relative;
-  left: 28%;
+  left: 29%;
   font-family: 'PT Serif',Georgia,serif;
   background: #f1f1f1;
   color: #bc3926;
@@ -12,7 +12,7 @@ export const StyledNavbarLink = styled(Link)`
   line-height: 34px;
   text-align: center;
   font-size: 1.1em;
-  margin-top: 6px;
+  margin-top: 18px;
   padding: 0 25px;
   text-transform: uppercase;
   text-decoration: none;

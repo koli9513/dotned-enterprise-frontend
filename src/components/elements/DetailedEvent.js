@@ -13,6 +13,7 @@ const DetailedEvent = () => {
             .then((res) => {
                 const eventFromServer = {
                     name: res.data.name,
+                    subtitle: res.data.subtitle,
                     description: res.data.description,
                     year: res.data.formattedDate[0],
                     month: res.data.formattedDate[1],
@@ -31,7 +32,7 @@ const DetailedEvent = () => {
     return (
         <StyledDetailedEvent>
             <div className="details">
-                <div className="name">{event.name}</div>
+                <div className="name">{event.name} <span className="subtitle"> {event.subtitle}</span></div>
                     <div className="box-left" dangerouslySetInnerHTML={{__html :event.description}} />
                     <div className="box-right">
                         <div className="date-info">
