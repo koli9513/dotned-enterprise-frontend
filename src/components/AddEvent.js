@@ -15,7 +15,7 @@ const AddEvent = () => {
     eventUrl: "",
     userId: 1,
     date: "2021-10-12T19:30",
-    category: "",
+    category: "THEATER",
     subtitle: "",
   });
 
